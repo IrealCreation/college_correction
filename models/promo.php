@@ -13,7 +13,13 @@ class Promo {
     public Professeur $prof_principal;
 
     function afficherInfos() {
-        echo "<tr><td>" . $this->nom . "</td><td>" . $this->prenom . "</td><td>" . $this->date_naissance . "</tr>";
+        echo "<tr><td>" . $this->niveau . 
+            "</td><td>" . $this->nom . 
+            "</td><td>" . $this->prof_principal->nom . 
+            "</td><td>" . $this->prof_principal->prenom . 
+            "</td><td>" . $this->prof_principal->email . 
+            "</td><td><a href=\"#\"><button>Afficher</button></a>" .
+            "</td></tr>";
     }
 
     static function readAll(): array {
@@ -33,7 +39,7 @@ class Promo {
         $liste = $statement->fetchAll(PDO::FETCH_CLASS, "Promo");
 
         foreach($liste as $promo) {
-            
+
             // Chargeons les informations du professeur principal sélectionné grâce la propriété id_professeurs de mon objet Promo
             $prof_principal = Professeur::readOne($promo->id_professeurs);
 

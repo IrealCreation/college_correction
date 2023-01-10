@@ -4,9 +4,9 @@ require_once("models/promo.php");
 
 $promos = Promo::readAll();
 
-echo "<pre>";
-var_dump($promos);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($promos);
+// echo "</pre>";
 
 ?>
 <?php include("assets/inc/head.php"); ?>
@@ -16,12 +16,18 @@ echo "</pre>";
         <h1>Liste des promotions</h1>
         <table class="table">
             <tr>
+                <th>Niveau</th>
                 <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
+                <th>Prof principal - Nom</th>
+                <th>Prof principal - Prénom</th>
+                <th>Prof principal - Email</th>
+                <th>Action</th>
             </tr>
             <?php 
-                // TODO : afficher les infos des promos (nom, niveau, nom du prof, prénom du prof, email du prof)
+                // Afficher les infos de chaque promo et de son prof principal
+                foreach($promos as $promo) {
+                    $promo->afficherInfos();
+                }
             ?>
         </table>
     </main>
