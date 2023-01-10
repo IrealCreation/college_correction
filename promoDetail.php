@@ -5,6 +5,12 @@
             Indice : créez une méthode readOne() dans la classe Promo
         2) afficher les informations de tous les élèves de cette promotion sous forme de tableau
     */
+
+    echo $_GET["id"];
+
+    // TODO: Récupération de la promo dont il s'agit grâce à la méthode readOne()
+    // $promo = Promo::readOne($_GET["id"]);
+
 ?>
 <?php include("assets/inc/head.php"); ?>
     <title>Détail de la promotion</title>

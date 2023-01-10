@@ -18,7 +18,7 @@ class Promo {
             "</td><td>" . $this->prof_principal->nom . 
             "</td><td>" . $this->prof_principal->prenom . 
             "</td><td>" . $this->prof_principal->email . 
-            "</td><td><a href=\"#\"><button>Afficher</button></a>" .
+            "</td><td>" . "<a href=\"promoDetail.php?id=" . $this->id_classes . "\"><button>Afficher</button></a>" .
             "</td></tr>";
     }
 
