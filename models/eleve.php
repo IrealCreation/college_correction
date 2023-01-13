@@ -40,4 +40,26 @@ class Eleve extends Personne {
 
         return $liste;
     }
+
+    // Méthode d'insertion d'un nouvel élève
+    static function create(string $nom, string $prenom, string $date_naissance, int $id_classes) {
+
+        global $pdo;
+
+        // Requête SQL d'insertion des données
+        $sql = "INSERT INTO eleves 
+                (nom, prenom, date_naissance, id_classes)
+            VALUES 
+                (:nom, :prenom, :date_naissance, :id_classes)
+        ";
+
+        $statement = $pdo->prepare($sql);
+
+        $statement->bindParam(":nom", $nom, PDO::PARAM_STR);
+        $statement->bindParam(":prenom", $prenom, PDO::PARAM_STR);
+        $statement->bindParam(":date_naissance", $date_naissance, PDO::PARAM_STR);
+        $statement->bindParam(":id_classes", $id_classes, PDO::PARAM_INT);
+
+        $statement->execute();
+    }
 }
